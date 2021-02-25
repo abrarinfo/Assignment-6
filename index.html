@@ -20,9 +20,9 @@
     <h4 class="mt-2 text-center">Search Image for create slider</h4>
     <div class="form-inline mt-3 d-flex justify-content-center">
       <div class="input-group col-md-6 mb-2">
-        <input type="text" class="form-control" id="search" placeholder="nature">
+        <input type="text" class="form-control p-3 mt-2" id="search" placeholder="nature" style="color: blueviolet;font-weight: bold; font-size: large;">
       </div>
-      <button type="button" id="search-btn" class="btn btn-outline-primary" style="color: blueviolet;">Search</button>
+      <button type="button" id="search-btn" class="btn btn-outline-primary">Search</button>
     </div>
     <section class="images">
       <div class="justify-content-around align-items-center mt-3 gallery-header mb-2">
@@ -53,6 +53,11 @@
     <div class="spinner-border text-dark" role="status">
     </div>
   </section>
+
+  <!-- Back to home btn -->
+  <center>
+    <button class="btn btn-outline-dark mt-5" id="back-btn" onclick="homeBtn()">Back to home</button>
+  </center>
 
   <!-- Optional JavaScript -->
   <script src="./app.js"></script>

@@ -22,7 +22,7 @@ const showImages = (images) => {
   images.forEach(image => {
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+    div.innerHTML = ` <img id="top-image" class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}">`;
     gallery.appendChild(div)
   })
 
@@ -35,7 +35,11 @@ const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
-    .catch(err => console.log(err))
+    .catch(err => displayError(err))
+}
+
+const displayError = ()=>{
+  alert("Something Went Wrong . Please Try Again Later.");
 }
 
 let slideIndex = 0;
@@ -67,13 +71,13 @@ const createSlider = () => {
   prevNext.innerHTML = ` 
   <span class="prev" onclick="changeItem(-1)"><i class="fas fa-chevron-left"></i></span>
   <span class="next" onclick="changeItem(1)"><i class="fas fa-chevron-right"></i></span>
-  `;
+  <button id="back-one-btn">back</button>`;
 
   sliderContainer.appendChild(prevNext)
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration').value || 1000;
+  const duration = Math.abs(document.getElementById('duration').value) || 1000;
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
@@ -134,7 +138,12 @@ document.getElementById('search').addEventListener('keypress', function(event){
   }
 });
 
+
 // BONUS PART
+
+const backBtn = document.getElementById('back-btn').addEventListener('click', function(){
+  imagesArea.style.display = 'none';
+});
 
 //spinner function
 const toggleSpinner = (show) => {
