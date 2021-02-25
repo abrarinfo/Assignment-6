@@ -70,8 +70,7 @@ const createSlider = () => {
   prevNext.className = "prev-next d-flex w-100 justify-content-between align-items-center";
   prevNext.innerHTML = ` 
   <span class="prev" onclick="changeItem(-1)"><i class="fas fa-chevron-left"></i></span>
-  <span class="next" onclick="changeItem(1)"><i class="fas fa-chevron-right"></i></span>
-  <button id="back-one-btn">back</button>`;
+  <span class="next" onclick="changeItem(1)"><i class="fas fa-chevron-right"></i></span>`;
 
   sliderContainer.appendChild(prevNext)
   document.querySelector('.main').style.display = 'block';
