@@ -1,3 +1,7 @@
+body{
+  background-color: whitesmoke;
+}
+
 #sliders {
   height: 400px;
   width: 60%;
@@ -63,4 +67,8 @@ img {
     height: 300px;
     width: 90%;
   }
+}
+
+.display-none-spinner{
+  display: none !important;
 }

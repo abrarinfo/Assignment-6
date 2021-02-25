@@ -29,9 +29,12 @@ const showImages = (images) => {
 }
 
 const getImages = (query) => {
+  //spinner
+  toggleSpinner(true)
+  //load data
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
-    .then(data => showImages(data.hitS))
+    .then(data => showImages(data.hits))
     .catch(err => console.log(err))
 }
 
@@ -44,7 +47,10 @@ const selectItem = (event, img) => {
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert('Hey, Already added !')
+    // alert('Hey, Already added !')
+    // imagesArea.style.display = 'none';
+    sliders.splice(item, 1);
+    element.classList.remove('added');
   }
 }
 var timer
@@ -127,3 +133,16 @@ document.getElementById('search').addEventListener('keypress', function(event){
       document.getElementById('search-btn').click();
   }
 });
+
+// BONUS PART
+
+//spinner function
+const toggleSpinner = (show) => {
+  const spinner = document.getElementById('loading-spinner');
+  if(show){
+    spinner.classList.remove('display-none-spinner');
+  }
+  else{
+    spinner.classList.add('display-none-spinner');
+  }
+}
