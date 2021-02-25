@@ -51,8 +51,6 @@ const selectItem = (event, img) => {
   if (item === -1) {
     sliders.push(img);
   } else {
-    // alert('Hey, Already added !')
-    // imagesArea.style.display = 'none';
     sliders.splice(item, 1);
     element.classList.remove('added');
   }
@@ -141,7 +139,8 @@ document.getElementById('search').addEventListener('keypress', function(event){
 // BONUS PART
 
 const backBtn = document.getElementById('back-btn').addEventListener('click', function(){
-  imagesArea.style.display = 'none';
+  sliderContainer.style.display = 'none';
+  imagesArea.style.display = 'block';
 });
 
 //spinner function
